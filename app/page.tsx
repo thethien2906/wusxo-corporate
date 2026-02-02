@@ -38,18 +38,25 @@ export default function HomePage() {
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="max-w-[1600px] mx-auto px-6 py-32 md:py-48">
-          <motion.div {...fadeInUp} className="max-w-5xl">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-              Vững vàng về kỹ thuật.
+        <div className="max-w-[1600px] mx-auto px-6 pt-0 pb-20 md:pt-6 md:pb-32">
+          <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <div className="w-full max-w-xs aspect-[2.4/1] bg-white/5 rounded-2xl border border-white/10 mb-8 flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-50" />
+              <div className="text-gray-600 font-mono text-sm flex items-center gap-1">
+                <div className="w-4 h-4 border-2 border-gray-600 border-dashed rounded" />
+                Placeholder Image
+              </div>
+            </div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+              VỮNG VÀN KỸ THUẬT
               <br />
-              Đổi mới về tư duy.
+              ĐỔI MỚI TƯ DUY
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
               Chúng tôi xây dựng sản phẩm công nghệ và cung cấp dịch vụ phát triển
               phần mềm cho doanh nghiệp.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/products/smartflow"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white hover:bg-white/5 transition-all rounded-lg text-sm group"
