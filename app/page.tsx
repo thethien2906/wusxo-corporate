@@ -65,18 +65,18 @@ export default function HomePage() {
                 href="/products/smartflow"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white hover:bg-white/5 transition-all rounded-lg text-sm group"
               >
-                Sản phẩm
+                Bắt đầu
                 <ArrowRight
                   size={16}
                   className="group-hover:translate-x-1 transition-transform"
                 />
               </Link>
-              <Link
+              {/* <Link
                 href="/outsourcing"
                 className="inline-flex items-center gap-2 px-6 py-3 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 Dịch vụ
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         </div>
@@ -211,7 +211,7 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="mt-12"
           >
-            <Link
+            {/* <Link
               href="/outsourcing"
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white hover:bg-white/5 transition-all rounded-lg text-sm group"
             >
@@ -220,7 +220,7 @@ export default function HomePage() {
                 size={16}
                 className="group-hover:translate-x-1 transition-transform"
               />
-            </Link>
+            </Link> */}
           </motion.div>
         </div>
       </section>
