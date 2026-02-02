@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Database, Cloud, Smartphone } from "lucide-react";
 
+import { AuroraText } from "@/components/ui/AuroraText";
+
 export default function HomePage() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -48,9 +50,9 @@ export default function HomePage() {
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
-              VỮNG VÀN KỸ THUẬT
+              VỮNG VÀN <AuroraText>KỸ THUẬT</AuroraText>
               <br />
-              ĐỔI MỚI TƯ DUY
+              ĐỔI MỚI <AuroraText>TƯ DUY</AuroraText>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
               Chúng tôi xây dựng sản phẩm công nghệ và cung cấp dịch vụ phát triển
