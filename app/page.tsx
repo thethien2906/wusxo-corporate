@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Code2, Database, Cloud, Smartphone } from "lucide-react";
 
 import { AuroraText } from "@/components/ui/AuroraText";
+import { MovingGrid } from "@/components/ui/moving-grid";
 
 export default function HomePage() {
   const fadeInUp = {
@@ -40,7 +41,8 @@ export default function HomePage() {
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="max-w-[1600px] mx-auto px-6 pt-0 pb-20 md:pt-6 md:pb-32">
+        <MovingGrid className="z-0" gridSize={50} speed={0.5} />
+        <div className="max-w-[1600px] mx-auto px-6 pt-0 pb-20 md:pt-6 md:pb-32 relative z-10">
           <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center flex flex-col items-center">
             <div className="w-full max-w-xs aspect-[2.4/1] bg-white/5 rounded-2xl border border-white/10 mb-8 flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-50" />
@@ -78,9 +80,6 @@ export default function HomePage() {
             </div>
           </motion.div>
         </div>
-
-        {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000,transparent)]" />
       </section>
 
       {/* Products Section */}
