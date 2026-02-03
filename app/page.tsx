@@ -6,6 +6,7 @@ import { ArrowRight, Code2, Database, Cloud, Smartphone } from "lucide-react";
 
 import { AuroraText } from "@/components/ui/AuroraText";
 import { MovingGrid } from "@/components/ui/moving-grid";
+import { OrbitCarousel } from "@/components/ui/orbit-carousel";
 
 export default function HomePage() {
   const fadeInUp = {
@@ -83,7 +84,7 @@ export default function HomePage() {
       </section>
 
       {/* Products Section */}
-      <section className="py-32 border-t border-white/10">
+      <section className="py-8 border-t border-white/10">
         <div className="max-w-[1600px] mx-auto px-6">
           <motion.div {...fadeInUp} className="mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -125,7 +126,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 border-t border-white/10">
+      <section className="py-8 border-t border-white/10">
         <div className="max-w-[1600px] mx-auto px-6">
           <motion.div {...fadeInUp} className="mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -136,74 +137,9 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div {...fadeInUp}>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Code2 size={20} className="text-gray-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Web Application
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Phát triển ứng dụng web hiện đại với React, Next.js và các công
-                    nghệ tiên tiến.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Smartphone size={20} className="text-gray-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Mobile Application
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Ứng dụng di động đa nền tảng cho iOS và Android với trải nghiệm
-                    tốt nhất.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Database size={20} className="text-gray-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Backend & API
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Thiết kế và phát triển backend mạnh mẽ, bảo mật và có khả năng
-                    mở rộng.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div {...fadeInUp} transition={{ delay: 0.3 }}>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Cloud size={20} className="text-gray-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Cloud & DevOps
-                  </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    Triển khai và quản lý hạ tầng đám mây với AWS, Azure, Google
-                    Cloud.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+          {/* Grid removed in favor of OrbitCarousel */}
+          <div className="w-full py-2">
+            <OrbitCarousel />
           </div>
 
           <motion.div
