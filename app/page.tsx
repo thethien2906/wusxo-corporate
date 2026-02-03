@@ -7,6 +7,7 @@ import { ArrowRight, Code2, Database, Cloud, Smartphone } from "lucide-react";
 import { AuroraText } from "@/components/ui/AuroraText";
 import { MovingGrid } from "@/components/ui/moving-grid";
 import { OrbitCarousel } from "@/components/ui/orbit-carousel";
+import { TechMarquee } from "@/components/ui/tech-marquee";
 
 export default function HomePage() {
   const fadeInUp = {
@@ -15,15 +16,6 @@ export default function HomePage() {
     viewport: { once: true },
     transition: { duration: 0.6 },
   };
-
-  const technologies = [
-    "React",
-    "Node.js",
-    "TypeScript",
-    "PostgreSQL",
-    "AWS",
-    "Docker",
-  ];
 
   const products = [
     {
@@ -173,18 +165,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech}
-                {...fadeInUp}
-                transition={{ delay: index * 0.05 }}
-                className="p-6 border border-white/10 rounded-lg bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/20 transition-all"
-              >
-                <span className="text-sm text-gray-400">{tech}</span>
-              </motion.div>
-            ))}
-          </div>
+          <TechMarquee />
         </div>
       </section>
 
