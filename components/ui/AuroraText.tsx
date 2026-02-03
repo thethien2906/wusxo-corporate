@@ -1,29 +1,43 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { memo } from "react";
 
 interface AuroraTextProps extends React.HTMLAttributes<HTMLElement> {
     className?: string;
     children: React.ReactNode;
-    as?: React.ElementType;
+    colors?: string[];
+    speed?: number;
 }
 
-export function AuroraText({
-    className,
-    children,
-    as: Component = "span",
-    ...props
-}: AuroraTextProps) {
-    return (
-        <Component
-            className={cn(
-                "animate-aurora-text bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-purple-500 to-teal-500 [background-size:200%_auto]",
-                className
-            )}
-            {...props}
-        >
-            {children}
-        </Component>
-    );
-}
+export const AuroraText = memo(
+    ({
+        className = "",
+        children,
+        colors = ["#38BDF8", "#3B82F6", "#EC4899", "#38BDF8"],
+        speed = 1,
+        ...props
+    }: AuroraTextProps) => {
+        const gradientStyle = {
+            backgroundImage: `linear-gradient(135deg, ${colors.join(", ")}, ${colors[0]})`,
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            animationDuration: `${10 / speed}s`,
+        };
+
+        return (
+            <span className={cn("relative inline-block", className)} {...props}>
+                <span className="sr-only">{children}</span>
+                <span
+                    className="relative animate-aurora bg-[length:200%_auto] bg-clip-text text-transparent"
+                    style={gradientStyle}
+                    aria-hidden="true"
+                >
+                    {children}
+                </span>
+            </span>
+        );
+    }
+);
+
+AuroraText.displayName = "AuroraText";

@@ -2,6 +2,8 @@
 
 import { motion } from "motion/react";
 import { Target, Eye, Heart, Lightbulb, Shield, Users2 } from "lucide-react";
+import { AuroraText } from "@/components/ui/AuroraText";
+import { TextReveal } from "@/components/ui/text-reveal";
 
 export default function AboutPage() {
     const fadeInUp = {
@@ -38,12 +40,7 @@ export default function AboutPage() {
         },
     ];
 
-    const stats = [
-        { number: "5+", label: "Năm kinh nghiệm" },
-        { number: "50+", label: "Dự án hoàn thành" },
-        { number: "30+", label: "Đối tác" },
-        { number: "100%", label: "Cam kết chất lượng" },
-    ];
+
 
     const timeline = [
         {
@@ -79,12 +76,14 @@ export default function AboutPage() {
                 <div className="max-w-[1600px] mx-auto px-6">
                     <motion.div {...fadeInUp} className="max-w-4xl">
                         <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-                            Về WuSxo
+                            Về <AuroraText>WuSxo</AuroraText>
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-400 leading-relaxed">
-                            Chúng tôi là đội ngũ các kỹ sư công nghệ đam mê, cam kết xây dựng các
-                            giải pháp phần mềm hiện đại và đáng tin cậy.
-                        </p>
+                        <TextReveal
+                            className="text-xl md:text-2xl text-gray-400 leading-relaxed"
+                            delay={0.3}
+                        >
+                            Chúng tôi là đội ngũ các kỹ sư công nghệ đam mê, cam kết xây dựng các giải pháp phần mềm hiện đại và đáng tin cậy.
+                        </TextReveal>
                     </motion.div>
                 </div>
             </section>
@@ -123,26 +122,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Stats Section */}
-            <section className="py-32 border-t border-white/10">
-                <div className="max-w-[1600px] mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {stats.map((stat, index) => (
-                            <motion.div
-                                key={stat.label}
-                                {...fadeInUp}
-                                transition={{ delay: index * 0.1 }}
-                                className="text-center"
-                            >
-                                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                                    {stat.number}
-                                </div>
-                                <div className="text-sm text-gray-400">{stat.label}</div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
             {/* Values Section */}
             <section className="py-32 border-t border-white/10">

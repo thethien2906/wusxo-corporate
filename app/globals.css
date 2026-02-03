@@ -43,6 +43,7 @@
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
     --animate-aurora-text: aurora-text 3s linear infinite;
+    --animate-aurora: aurora 10s ease-in-out infinite;
     --animate-marquee: marquee var(--duration) linear infinite;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
@@ -53,6 +54,20 @@
 
         100% {
             background-position: 200% center;
+        }
+    }
+
+    @keyframes aurora {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
         }
     }
 
@@ -74,6 +89,13 @@
         to {
             transform: translateY(calc(-100% - var(--gap)));
         }
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-aurora {
+        animation: none;
     }
 }
 

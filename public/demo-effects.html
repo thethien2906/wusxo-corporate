@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora & Text Reveal Effects Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .aurora-text {
+            display: inline-block;
+            background: linear-gradient(135deg, #38BDF8, #3B82F6, #EC4899, #38BDF8);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: aurora 10s ease-in-out infinite;
+        }
+
+        .aurora-text-fast {
+            animation-duration: 5s;
+        }
+
+        .aurora-text-purple {
+            background: linear-gradient(135deg, #FF0080, #7928CA, #0070F3, #38bdf8, #FF0080);
+        }
+
+        @keyframes aurora {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .aurora-text {
+                animation: none;
+            }
+        }
+
+        .text-reveal {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            line-height: 1.8;
+        }
+
+        .text-reveal .word {
+            display: inline-block;
+            margin-right: 0.25em;
+            opacity: 0;
+            transform: translateY(20px);
+            filter: blur(8px);
+            animation: reveal-word 0.6s ease forwards;
+        }
+
+        .text-reveal .word:last-child {
+            margin-right: 0;
+        }
+
+        @keyframes reveal-word {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .demo-section {
+            margin-bottom: 6rem;
+        }
+
+        .demo-title {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .info-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 0.5rem 0;
+            color: #9ca3af;
+        }
+
+        .info-box li::before {
+            content: "✓ ";
+            color: #22d3ee;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="demo-section">
+            <p class="demo-title">Aurora Text Effect - Default (Cyan → Blue → Pink)</p>
+            <h1>
+                Về <span class="aurora-text">WuSxo</span>
+            </h1>
+        </div>
+
+        <div class="demo-section">
+            <p class="demo-title">Aurora Text Effect - Purple Scheme (Magenta → Purple → Blue)</p>
+            <h1>
+                Create <span class="aurora-text aurora-text-purple">Beautiful</span> Things
+            </h1>
+        </div>
+
+        <div class="demo-section">
+            <p class="demo-title">Aurora Text Effect - Fast Speed</p>
+            <h1>
+                Fast <span class="aurora-text aurora-text-fast">Animation</span>
+            </h1>
+        </div>
+
+        <div class="demo-section">
+            <p class="demo-title">Text Reveal Effect</p>
+            <div class="text-reveal" id="revealText">
+                Chúng tôi là đội ngũ các kỹ sư công nghệ đam mê, cam kết xây dựng các giải pháp phần mềm hiện đại và
+                đáng tin cậy.
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2>✨ Implementation Details</h2>
+            <ul>
+                <li>Aurora gradient: 135deg angle for smooth color flow</li>
+                <li>Default colors: Cyan (#38BDF8) → Blue (#3B82F6) → Pink (#EC4899)</li>
+                <li>Animation: ease-in-out for natural motion (10s default)</li>
+                <li>Customizable: Change colors array and speed props</li>
+                <li>Accessibility: Screen reader support + prefers-reduced-motion</li>
+                <li>Performance: React.memo optimization</li>
+                <li>Text Reveal: Word-by-word blur-in + slide-up effect</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>🎨 Usage Examples</h2>
+            <div
+                style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; font-family: monospace; font-size: 0.9rem; margin-top: 1rem;">
+                <div style="color: #6b7280; margin-bottom: 0.5rem;">// Default colors</div>
+                <div style="color: #22d3ee;">&lt;AuroraText&gt;</div>
+                <div style="color: #fff; margin-left: 1rem;">WuSxo</div>
+                <div style="color: #22d3ee;">&lt;/AuroraText&gt;</div>
+
+                <div style="color: #6b7280; margin: 1rem 0 0.5rem;">// Custom colors & speed</div>
+                <div style="color: #22d3ee;">&lt;AuroraText</div>
+                <div style="color: #a855f7; margin-left: 1rem;">colors={["#FF0080", "#7928CA", "#0070F3"]}</div>
+                <div style="color: #a855f7; margin-left: 1rem;">speed={2}</div>
+                <div style="color: #22d3ee;">&gt;</div>
+                <div style="color: #fff; margin-left: 1rem;">Beautiful</div>
+                <div style="color: #22d3ee;">&lt;/AuroraText&gt;</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Text Reveal Animation
+        const revealTextEl = document.getElementById('revealText');
+        const text = revealTextEl.textContent.trim();
+        const words = text.split(' ');
+
+        revealTextEl.innerHTML = words.map((word, index) =>
+            `<span class="word" style="animation-delay: ${index * 0.08 + 0.3}s">${word}</span>`
+        ).join(' ');
+    </script>
+</body>
+
+</html>
