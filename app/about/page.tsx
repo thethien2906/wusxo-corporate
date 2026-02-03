@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Target, Eye, Heart, Lightbulb, Shield, Users2 } from "lucide-react";
 import { AuroraText } from "@/components/ui/AuroraText";
 import { TextReveal } from "@/components/ui/text-reveal";
+import { BentoGrid, BentoCard } from "@/components/ui/bento-grid";
 
 export default function AboutPage() {
     const fadeInUp = {
@@ -19,28 +20,34 @@ export default function AboutPage() {
             title: "Trung thực",
             description:
                 "Cam kết minh bạch trong mọi giao dịch và đặt lợi ích khách hàng lên hàng đầu",
+            background: <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-50" />,
+            className: "md:col-span-1",
         },
         {
             icon: Lightbulb,
             title: "Sáng tạo",
             description:
                 "Không ngừng đổi mới và tìm kiếm những giải pháp công nghệ tiên tiến",
+            background: <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-50" />,
+            className: "md:col-span-2",
         },
         {
             icon: Shield,
             title: "Trách nhiệm",
             description:
                 "Chịu trách nhiệm hoàn toàn về chất lượng sản phẩm và dịch vụ",
+            background: <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-50" />,
+            className: "md:col-span-2",
         },
         {
             icon: Users2,
             title: "Hợp tác",
             description:
                 "Xây dựng mối quan hệ đối tác bền vững dựa trên sự tin tưởng",
+            background: <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-50" />,
+            className: "md:col-span-1",
         },
     ];
-
-
 
     const timeline = [
         {
@@ -136,26 +143,18 @@ export default function AboutPage() {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <BentoGrid className="max-w-4xl mx-auto">
                         {values.map((value, index) => (
-                            <motion.div
-                                key={value.title}
-                                {...fadeInUp}
-                                transition={{ delay: index * 0.1 }}
-                                className="p-6 border border-white/10 rounded-xl bg-white/[0.02]"
-                            >
-                                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center mb-4">
-                                    <value.icon size={20} className="text-gray-400" />
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-2">
-                                    {value.title}
-                                </h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    {value.description}
-                                </p>
-                            </motion.div>
+                            <BentoCard
+                                key={index}
+                                name={value.title}
+                                className={value.className}
+                                background={value.background}
+                                Icon={value.icon}
+                                description={value.description}
+                            />
                         ))}
-                    </div>
+                    </BentoGrid>
                 </div>
             </section>
 
