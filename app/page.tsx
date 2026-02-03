@@ -1,14 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Code2, Database, Cloud, Smartphone } from "lucide-react";
 
 import { AuroraText } from "@/components/ui/AuroraText";
 import { MovingGrid } from "@/components/ui/moving-grid";
 import { OrbitCarousel } from "@/components/ui/orbit-carousel";
 import { TechMarquee } from "@/components/ui/tech-marquee";
+import ThreeDCarousel, { CarouselItem } from "@/components/ThreeDCarousel";
 
 export default function HomePage() {
   const fadeInUp = {
@@ -18,18 +20,45 @@ export default function HomePage() {
     transition: { duration: 0.6 },
   };
 
-  const products = [
+  const products: CarouselItem[] = [
     {
-      name: "SmartFlow",
-      description: "Quản lý dự án và quy trình",
-      path: "/products/smartflow",
+      id: "1",
+      name: "Phở Phố Board Game",
+      description: "Trò chơi Board Game mô phỏng văn hóa ẩm thực Phở Việt Nam độc đáo.",
+      path: "/products/pho-pho",
+      image: "https://i.pinimg.com/1200x/6e/4c/39/6e4c394783c731f261f295e7ffd1deed.jpg",
     },
     {
-      name: "CloudVault",
-      description: "Lưu trữ và bảo mật dữ liệu",
-      path: "/products/cloudvault",
+      id: "2",
+      name: "Cello Betta",
+      description: "Website thương mại điện tử chuyên cung cấp các dòng cá Betta nghệ thuật.",
+      path: "/products/cello-betta",
+      image: "https://i.pinimg.com/1200x/1e/0c/1c/1e0c1c9c868bf07b4c27a275fb3087af.jpg",
     },
+    {
+      id: "3",
+      name: "Twin Coffee",
+      description: "Website giới thiệu và đặt bàn cho chuỗi cửa hàng cà phê hiện đại.",
+      path: "/products/twin-coffee",
+      image: "https://i.pinimg.com/736x/30/91/09/3091098a15810ddbbd58d5e007bc7207.jpg",
+    },
+    {
+      id: "4",
+      name: "Tinh Hoa Quê Nhà",
+      description: "Sàn thương mại điện tử kết nối và phân phối đặc sản vùng miền Việt Nam.",
+      path: "/products/tinh-hoa-que-nha",
+      image: "https://i.pinimg.com/736x/07/cf/4a/07cf4a3a6f4144b4c7ac8e2ec5978dc1.jpg",
+    },
+    {
+      id: "5",
+      name: "SmartCalo",
+      description: "Ứng dụng theo dõi sức khoẻ và dinh dưỡng cá nhân hóa với AI.",
+      path: "/products/smart-calo",
+      image: "https://i.pinimg.com/736x/5d/bf/f2/5dbff2b4c0fdcb9815e989f0db386f95.jpg",
+    }
   ];
+
+  const [activeProject, setActiveProject] = useState<CarouselItem>(products[0]);
 
   return (
     <div className="bg-black">
@@ -91,31 +120,42 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {products.map((product, index) => (
-              <motion.div
-                key={product.name}
-                {...fadeInUp}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link
-                  href={product.path}
-                  className="group block p-8 border border-white/10 hover:border-white/20 transition-all rounded-xl bg-white/[0.02] hover:bg-white/[0.04]"
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column: Carousel */}
+            <div className="w-full h-[600px] relative order-2 lg:order-1">
+              <ThreeDCarousel items={products} onActiveChange={setActiveProject} />
+            </div>
+
+            {/* Right Column: Active Description */}
+            <div className="order-1 lg:order-2 h-[400px] relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeProject.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 flex flex-col justify-center"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gray-100">
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-400 mb-6">{product.description}</p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
-                    Tìm hiểu thêm
-                    <ArrowRight
-                      size={14}
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
+                  <div className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl">
+                    <h3 className="text-4xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                      {activeProject.name}
+                    </h3>
+                    <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                      {activeProject.description}
+                    </p>
+
+                    <Link
+                      href={activeProject.path}
+                      className="inline-flex items-center gap-3 px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors"
+                    >
+                      Xem chi tiết
+                      <ArrowRight size={18} />
+                    </Link>
                   </div>
-                </Link>
-              </motion.div>
-            ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </section>
