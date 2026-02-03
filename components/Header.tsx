@@ -31,7 +31,7 @@ export function Header() {
               alt="WuSxo"
               width={120}
               height={40}
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain scale-200"
             />
           </Link>
 

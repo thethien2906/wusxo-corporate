@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from "lucide-react";
 
 export function Footer() {
@@ -11,10 +12,13 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-white flex items-center justify-center">
-                <span className="text-black font-bold text-lg">W</span>
-              </div>
-              <span className="text-white font-medium">WuSxo</span>
+              <Image
+                src="/logos/wusxo_logo.png"
+                alt="WuSxo"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain scale-200 origin-left"
+              />
             </div>
             <p className="text-sm text-gray-500 leading-relaxed">
               Vững vàng về kỹ thuật - Đổi mới về tư duy.
