@@ -10,7 +10,7 @@ const RADIUS = 250; // Further reduced radius for tighter circle
 const TILT_SENSITIVITY = 15;
 const DRAG_SENSITIVITY = 0.5;
 const INERTIA_FRICTION = 0.95;
-const AUTOSPIN_SPEED = 0.05; // Slower spin
+const AUTOSPIN_SPEED = 0.2; // Slower spin
 const IDLE_TIMEOUT = 1000;
 
 /* 2️⃣  Data Types —————————————————————— */
