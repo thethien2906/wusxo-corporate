@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -15,7 +16,7 @@ export function Header() {
   const links = [
     { path: "/", label: "Trang chủ" },
     { path: "/about", label: "Về chúng tôi" },
-    { path: "/outsourcing", label: "Dịch vụ gia công" },
+    // { path: "/outsourcing", label: "Dịch vụ gia công" },
     { path: "/contact", label: "Liên hệ" },
   ];
 
@@ -25,10 +26,13 @@ export function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-white flex items-center justify-center">
-              <span className="text-black font-bold text-lg">W</span>
-            </div>
-            <span className="text-lg font-medium text-white">WuSxo</span>
+            <Image
+              src="/logos/wusxo_logo.png"
+              alt="WuSxo"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}

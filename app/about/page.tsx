@@ -51,22 +51,16 @@ export default function AboutPage() {
 
     const timeline = [
         {
-            year: "2021",
+            year: "2024",
             title: "Khởi đầu",
             description:
                 "WuSxo được thành lập bởi nhóm các kỹ sư đam mê công nghệ.",
         },
         {
-            year: "2023",
+            year: "2025",
             title: "Mở rộng",
             description:
                 "Phát triển đội ngũ và ra mắt sản phẩm đầu tiên SmartFlow.",
-        },
-        {
-            year: "2025",
-            title: "Đa dạng hóa",
-            description:
-                "Mở rộng dịch vụ gia công và ra mắt CloudVault.",
         },
         {
             year: "2026",
@@ -83,7 +77,7 @@ export default function AboutPage() {
                 <div className="max-w-[1600px] mx-auto px-6">
                     <motion.div {...fadeInUp} className="max-w-4xl">
                         <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
-                            Về <AuroraText>WuSxo</AuroraText>
+                            <AuroraText colors={["#644AD1", "#7760D4", "#92C948", "#A9D173"]}>WuSxo</AuroraText>
                         </h1>
                         <TextReveal
                             className="text-xl md:text-2xl text-gray-400 leading-relaxed"

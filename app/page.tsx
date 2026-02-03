@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight, Code2, Database, Cloud, Smartphone } from "lucide-react";
 
@@ -35,19 +36,21 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <MovingGrid className="z-0" gridSize={50} speed={0.5} />
-        <div className="max-w-[1600px] mx-auto px-6 pt-0 pb-20 md:pt-6 md:pb-32 relative z-10">
+        <div className="max-w-[1600px] mx-auto px-6 pt-0 pb-20 md:pt-0 md:pb-32 relative z-10">
           <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <div className="w-full max-w-xs aspect-[2.4/1] bg-white/5 rounded-2xl border border-white/10 mb-8 flex items-center justify-center relative overflow-hidden backdrop-blur-sm">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-50" />
-              <div className="text-gray-600 font-mono text-sm flex items-center gap-1">
-                <div className="w-4 h-4 border-2 border-gray-600 border-dashed rounded" />
-                Placeholder Image
-              </div>
+            <div className="w-full max-w-lg md:max-w-2xl aspect-[3/1] relative mb-10">
+              <Image
+                src="/logos/wusxo_letter_logo.png"
+                alt="WuSxo Logo"
+                fill
+                className="object-contain scale-[4.0]"
+                priority
+              />
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
-              VỮNG VÀN <AuroraText>KỸ THUẬT</AuroraText>
+            <h1 className="text-1xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+              VỮNG VÀN <AuroraText colors={["#ADA0E1", "#8976D8", "#644AD1", "#ADA0E1"]}>KỸ THUẬT</AuroraText>
               <br />
-              ĐỔI MỚI <AuroraText>TƯ DUY</AuroraText>
+              ĐỔI MỚI <AuroraText colors={["#C0DB9C", "#A9D173", "#92C948", "#C0DB9C"]}>TƯ DUY</AuroraText>
             </h1>
             <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
               Chúng tôi xây dựng sản phẩm công nghệ và cung cấp dịch vụ phát triển
